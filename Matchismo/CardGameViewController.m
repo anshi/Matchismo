@@ -39,6 +39,7 @@
 
 - (IBAction)touchCardButtontouchCardButton:(UIButton *)sender
 {
+    Card *card = [self.deck drawRandomCard];
     if ([sender.currentTitle length])
     {
         [sender setBackgroundImage:[UIImage imageNamed:@"cardback"]
@@ -50,7 +51,7 @@
         [sender setBackgroundImage:[UIImage imageNamed:@"cardfront"]
                           forState:UIControlStateNormal];
         //[sender setTitle:@"A♣︎" forState:UIControlStateNormal];
-        [sender setTitle:[self.deck drawRandomCard].contents forState:UIControlStateNormal];
+        [sender setTitle:card.contents forState:UIControlStateNormal];
     }
     self.flipCount ++;
 }
